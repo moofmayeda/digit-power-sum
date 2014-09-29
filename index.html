@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="digitPowerSum">
+<head>
+  <meta charset="UTF-8">
+  <title>Digit Power Sum</title>
+  <script src="js/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="js/digitpowersumcontroller.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container" ng-controller="numbersController">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Power Sums</h2>
+        <a class="btn btn-primary" ng-click="generateNext()">Generate next</a>
+        <ol>
+          <li ng-repeat="item in powersums | filter:query">
+              {{item}}
+          </li>
+        </ol>
+      </div>
+      <div class="col-md-6">
+        <h2>Find the nth Power Sum</h2>
+        <form ng-submit="findValue()" class="form-inline" role="form">
+          <div class="form-group">
+            <input type="integer" ng-model="findnth" class="form-control" placeholder="Enter n">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        <span>{{number}}</span>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Search</h4>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <input ng-model="query" type="text" class="form-control" placeholder="Search">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
